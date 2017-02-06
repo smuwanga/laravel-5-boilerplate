@@ -40,23 +40,20 @@
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4>Sidebar Item</h4>
+                                    <h4>Actions</h4>
                                 </div><!--panel-heading-->
 
                                 <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
+                                     
+                                    <ul><a href="#" class="btn btn-info btn-xs">Public Engagement</a></ul>
+                                    <ul><a href="#" class="btn btn-info btn-xs">Add Study Plan</a></ul>
+                                    <ul><a href="#" class="btn btn-info btn-xs">Research Leadership</a></ul>
+                                    <ul><a href="#" class="btn btn-info btn-xs">Conferences and Workshops</a></ul>
+                                    <ul><a href="#" class="btn btn-info btn-xs">Personal Development Plan</a></ul>
                                 </div><!--panel-body-->
                             </div><!--panel-->
 
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4>Sidebar Item</h4>
-                                </div><!--panel-heading-->
-
-                                <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
-                                </div><!--panel-body-->
-                            </div><!--panel-->
+                            
                         </div><!--col-md-4-->
 
                         <div class="col-md-8 col-md-pull-4">
@@ -64,7 +61,7 @@
                                 <div class="col-xs-12">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <h4>Item</h4>
+                                            <h4>My Profile</h4>
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
@@ -78,7 +75,7 @@
                                 <div class="col-md-6">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <h4>Item</h4>
+                                            <h4>Milestones</h4>
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
@@ -90,7 +87,7 @@
                                 <div class="col-md-6">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <h4>Item</h4>
+                                            <h4>Recent Notifications</h4>
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
@@ -99,29 +96,7 @@
                                     </div><!--panel-->
                                 </div><!--col-md-6-->
 
-                                <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-
-                                <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
+                                
 
                             </div><!--row-->
 

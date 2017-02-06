@@ -14,6 +14,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
+        //app('App\Http\Controllers\Frontend\Auth\LoginController')->showLoginForm();
         return view('frontend.index');
     }
 
