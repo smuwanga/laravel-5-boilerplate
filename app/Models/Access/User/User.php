@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Access\User\Traits\UserSendPasswordReset;
 use App\Models\Access\User\Traits\Attribute\UserAttribute;
 use App\Models\Access\User\Traits\Relationship\UserRelationship;
-
+use Cmgmyr\Messenger\Traits\Messagable;
 /**
  * Class User.
  */
@@ -22,7 +22,8 @@ class User extends Authenticatable
         SoftDeletes,
         UserAttribute,
         UserRelationship,
-        UserSendPasswordReset;
+        UserSendPasswordReset,
+        Messagable;
 
     /**
      * The database table used by the model.

@@ -24,6 +24,7 @@ class LoginController extends Controller
      * @return string
      */
     public function redirectPath()
+    
     {
         if (access()->allow('view-backend')) {
             return route('admin.dashboard');
