@@ -19,7 +19,6 @@ Route::group(['middleware' => 'auth'], function () {
          */
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
-
         /*
          * User Account Specific
          */
@@ -29,14 +28,5 @@ Route::group(['middleware' => 'auth'], function () {
          * User Profile Specific
          */
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
-
-        Route::post('newprofile/profile','ProfileController@newstudent')->name('profile.new');
-
-        //Study plan register sart with meeing pl
-
-        
-        Route::post('meet','StudyPlanController@meet')->name('meet');
-        Route::post('course','StudyPlanController@courses')->name('course');
-        
     });
 });
