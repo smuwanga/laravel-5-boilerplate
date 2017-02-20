@@ -14,12 +14,12 @@ class SocialLogin extends Model
      *
      * @var string
      */
-    protected $table = 'social_logins';
+    public $table = 'social_logins';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'provider', 'provider_id', 'token', 'avatar'];
+    public $fillable = ['user_id', 'provider', 'provider_id', 'token', 'avatar'];
 }

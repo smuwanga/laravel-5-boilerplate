@@ -37,6 +37,16 @@ Route::group(['middleware' => 'auth'], function () {
         
         Route::post('meet','StudyPlanController@meet')->name('meet');
         Route::post('course','StudyPlanController@courses')->name('course');
+        Route::post('plan','StudyPlanController@plan')->name('plan');
+        Route::get('planedit','StudyPlanController@planedit')->name('planedit');
+        Route::get('showstudy','StudyPlanController@showstudy')->name('showstudy');
+        Route::get('showcourse','StudyPlanController@showcourse')->name('showcourse');
+        Route::get('showmeet','StudyPlanController@showmeet')->name('showmeet');
+         Route::get('showengage','StudyPlanController@showengagement')->name('showengage');
+
+        
+        Route::post('activity_create','StudyPlanController@activity_create')->name('activity_create');
+        Route::post('engage','StudyPlanController@engage')->name('engage');
         
     });
 });

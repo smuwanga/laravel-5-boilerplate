@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend\User;
 
-//use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\User\UpdateProfileRequest;
 use App\Repositories\Frontend\Access\User\UserRepository;
 
@@ -33,7 +33,8 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request)
     {
-        $this->user->updateProfile(access()->id(), $request->all());
+       $hrh =  $this->user->updateProfile(access()->id(), $request->all());
+       print_r($hrh);exit;
 
         return redirect()->route('frontend.user.account')->withFlashSuccess(trans('strings.frontend.user.profile_updated'));
     }

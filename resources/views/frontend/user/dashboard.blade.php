@@ -57,239 +57,106 @@
                                                       <div class="modal-body">
                                                           
                                                           
-                                                      <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home">YEAR ONE</a></li>
-  <li><a data-toggle="tab" href="#menu1">YEAR TWO</a></li>
-  <li><a data-toggle="tab" href="#menu2">YEAR THREE</a></li>
-  <li><a data-toggle="tab" href="#menu3">YEAR FOUR</a></li>
-</ul>
+  {!! Form::open(array('url'=>'engage')) !!}
 
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-
-  <h3> YEAR ONE </h3>
-  <br>
-  <br>
-        {{ Form::open(['link_to_route' => 'study/meet' ,'class' => 'form-horizontal']) }}
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Engagement Type:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Audience:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-                  
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Frequency:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::number('num', 'num', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>    
+           <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Engagement Type', ['class' => 'control-label col-sm-4'])!!}
+                        <div class="col-sm-8">
+                         {!! Form::text('engage_type', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Type of engagement')) !!}
+                          </div>
+                        </div>  
+          </div> 
+          <br>
 
 
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Comments:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::textarea('comments',null, ['class' => 'form-control','rows'=>5]) }}
-            </div><!--col-md-6-->
-            </div>   
-            <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />   
-           
-               <div class="form-group">
+          <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Audience', ['class' => 'control-label col-sm-4'])!!}
+                        <div class="col-sm-8">
+                         {!! Form::text('audience', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Audience')) !!}
+                          </div>
+                        </div>  
+          </div> 
+
+<br>
+          <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Frequency', ['class' => 'control-label col-sm-4'])!!}
+                        <div class="col-sm-4">
+                         {!! Form::number('frequency', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'1')) !!}
+                          </div>
+                        </div> 
+
+                        <div class="col-sm-4"></div> 
+          </div> 
+          <br>
+
+            <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Year', ['class' => 'control-label col-sm-4'])!!}
+                        <div class="col-sm-4">
+                         {!! Form::select('year',['one' => 'YEAR ONE', 'two' => 'YEAR TWO','three'=>'YEAR THREE','four'=>'YEAR FOUR'], null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'click to select year')) !!}
+                          </div>
+                        </div> 
+
+                        <div class="col-sm-4"></div> 
+          </div> 
+          <br>
+           <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Comments', ['class' => 'control-label col-sm-4'])!!}
+                        <div class="col-sm-8">
+                         {!! Form::textarea('comments', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'comments go here')) !!}
+                          </div>
+                        </div> 
+
+                       
+          </div> 
+
+<br>
+
+         
+            
+            
+             <div class="form-group">
                <div class="col-md-3 offset-md-2"> 
-               <button type="submit" class="btn btn-success">SAVE</button>
+              {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
               </div>
                 </div>
-            {{Form::close()}}  
-  </div>
-  <div id="menu1" class="tab-pane fade">
-  <h3> YEAR TWO </h3>
+             
            <br>
-           <br>
-
-            {{ Form::open(['link_to_route' => 'study/meet' ,'class' => 'form-horizontal']) }}
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'EngagementType:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Audience:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-                  
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Frequency:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::number('num', 'num', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>    
+           <br>  
 
 
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Comments:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::textarea('comments',null, ['class' => 'form-control','rows'=>5]) }}
-            </div><!--col-md-6-->
-            </div>   
-            <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />   
+
            
-                <div class="form-group">
-               <div class="col-md-3 offset-md-2"> 
-               <button type="submit" class="btn btn-success">SAVE</button>
-              </div>
-                </div>
-                
-            {{Form::close()}}
-    
-  </div>
-  <div id="menu2" class="tab-pane fade">
-  <h3> YEAR THREE </h3>
-             <br>
-             <br>
 
-            {{ Form::open(['link_to_route' => 'study/meet' ,'class' => 'form-horizontal']) }}
+            
+            <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" /> 
 
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Engagement Type:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Audience:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-                  
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Frequency:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::number('num', 'num', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>    
-
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Comments:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::textarea('comments',null, ['class' => 'form-control','rows'=>5]) }}
-            </div><!--col-md-6-->
-            </div>   
-            <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />   
-           
-                <div class="form-group">
-               <div class="col-md-3 offset-md-2"> 
-               <button type="submit" class="btn btn-success">SAVE</button>
-              </div>
-                </div>
-                
-            {{Form::close()}}
-    
-  </div>
-
-  <div id="menu3" class="tab-pane fade">
-  <h3> YEAR FOUR </h3>
-  <br>
-  <br>
-
-            {{ Form::open(['link_to_route' => 'study/meet' ,'class' => 'form-horizontal']) }}
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Engagement Type:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Audience:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-                  
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Frequency:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::number('num', 'num', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>    
-
-
-            <div class="form-group">
-             <div class="col-sm-4">     
-            {{ Form::label('name', 'Comments:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-8">
-            {{ Form::textarea('comments',null, ['class' => 'form-control','rows'=>5]) }}
-            </div><!--col-md-6-->
-            </div>   
-            <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />   
-           
-                <div class="form-group">
-               <div class="col-md-3 offset-md-2"> 
-               <button type="submit" class="btn btn-success">SAVE</button>
-              </div>
-                </div>
-                
-            {{Form::close()}}
-    
-  </div>
-</div>
-
-
-
-                                                          
-                                                      </div>
+            {!!Form::close()!!}  
+ 
                                                       <div class="modal-footer">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                         
@@ -297,6 +164,7 @@
                                                     </div>
                                                   </div>
                                                 </div>
+                                           </div>     
                                     
                                     
                                     
@@ -310,79 +178,881 @@
                                                       </div>
                                                       <div class="modal-body">
                                                           
-<div class="row">   
+
+                        
+                                                          
+    <div class="panel panel-info">
+        <div class="panel-heading"> RESEARCH PLAN </div>  
+         <div class="panel-body"> 
+            
+                  <label>Number of studies</label>  
+                    <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#opt">STUDY ONE</a></li>
+                    <li><a data-toggle="tab" href="#opt1"><b>STUDY TWO</b></a></li>
+                    <li><a data-toggle="tab" href="#opt2"><b>STUDY THREE</b></a></li>
+                    <li><a data-toggle="tab" href="#opt3"><b>STUDY FOUR</b></a></li>  
+                    <li><a data-toggle="tab" href="#opt4"><b>STUDY FIVE</b></a></li>    
+                    </ul>
+                    
+                    <div class="tab-content">
+                        <div id="opt" class="tab-pane fade in active"> <h3><ul>STUDY ONE</ul></h3>
+                        <br>
+                        <br>
+                        
+                        <!--CONTENT-->
+                        {!! Form::open(array('url'=>'plan')) !!}
+                        <div class="row">
+                        <div class="form-group">
+                         
+                        {!!Form::label('name', 'STUDY TITLE', ['class' => 'control-label col-sm-2'])!!}
+                          <div class="col-sm-10">
+                         {!! Form::input('study_name', 'study_name', null, ['class' => 'form-control','placeholder'=>'study title goes here']) !!}
+                          </div>     
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            {!!Form::hidden('study_number','studyone',null,['value'=>''])!!}
+                            </div>
+                                  
+                          
+                          <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'OBJECTIVES', ['class' => 'control-label col-sm-2'])!!}
+                        <div class="col-sm-10">
+                         {!! Form::textarea('objectives', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Your Objectives here')) !!}
+                          </div>
+                        </div>  
+                        </div>       
+
+  <br>
+
+                         <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Ethical Approval date:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('ethical_approval', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+  <br>    
+                        <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Collection:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_collection', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>                  
+
+
+                         
+ <br>                  
+
+                       <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Analysis:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_analysis', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+
+
+<br>                    
+                            <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Manuscript Writing:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('manuscript', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+                        <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />  
+
+
+
+<br>                      
+                        <div class="row">
+                          <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Anticipated Manuscripts:', ['class' => 'control-label col-sm-4'])!!}
+                          {!!Form::selectRange('number_papers','1','10')!!}
+
+                            </div> 
+                           </div>
+                                 
+
+                           
+                             <div class="row">
+            <div class="col-sm-2">
+            {!! Form::button('Edit', ['class' => 'btn btn-info']) !!}
+             </div>   
+             <div class="col-sm-8"> </div>  
+             <div class="col-sm-2">
+             <div class="form-group">
+               <div class="col-md-3 offset-md-2"> 
+              {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
+              </div>
+                </div>
+              </div>
+             </div>   
+
+
+                      {!!Form::close()!!}   
+                            
+                            
+                            
+                    </div>
+                    
+                    
+                        <div id="opt1" class="tab-pane fade">
+                        <h3>STUDY TWO</h3>
+                        <br>
+                        <br>
+                            <!--CONTENT-->
+                                            {!! Form::open(array('url'=>'plan')) !!}
+                        <div class="row">
+                        <div class="form-group">
+                         
+                        {!!Form::label('name', 'STUDY TITLE', ['class' => 'control-label col-sm-2'])!!}
+                          <div class="col-sm-10">
+                         {!! Form::input('study_name', 'study_name', null, ['class' => 'form-control','placeholder'=>'study title goes here']) !!}
+                          </div>     
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            {!!Form::hidden('study_number','studytwo',null,['value'=>'studyone'])!!}
+                            </div>
+                                 
+                          
+                          <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'OBJECTIVES', ['class' => 'control-label col-sm-2'])!!}
+                        <div class="col-sm-10">
+                         {!! Form::textarea('objectives', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Your Objectives here')) !!}
+                          </div>
+                        </div>  
+                        </div>       
+
+  <br>
+
+                         <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Ethical Approval date:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('ethical_approval', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+  <br>    
+                        <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Collection:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_collection', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>                  
+
+
+                         
+ <br>                  
+
+                       <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Analysis:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_analysis', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+
+
+<br>                    
+                            <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Manuscript Writing:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('manuscript', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+                        <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />  
+
+
+
+<br>                      
+                        <div class="row">
+                          <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Anticipated Manuscripts:', ['class' => 'control-label col-sm-4'])!!}
+                          {!!Form::selectRange('number_papers','1','10')!!}
+
+                            </div> 
+                           </div>
+                                 
+
+                           
+                             <div class="row"> 
+             <div class="col-sm-10"> </div>  
+             <div class="col-sm-2">
+             <div class="form-group">
+               <div class="col-md-3 offset-md-2"> 
+              {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
+              </div>
+                </div>
+              </div>
+             </div>   
+
+                      {!!Form::close()!!}  
+                        </div>
+                   
+                        
+                        
+                        <div id="opt2" class="tab-pane fade">
+                        <h3>STUDY THREE</h3>
+                            <!--CONTENT-->
+                                                {!! Form::open(array('url'=>'plan')) !!}
+                        <div class="row">
+                        <div class="form-group">
+                         
+                        {!!Form::label('name', 'STUDY TITLE', ['class' => 'control-label col-sm-2'])!!}
+                          <div class="col-sm-10">
+                         {!! Form::input('study_name', 'study_name', null, ['class' => 'form-control','placeholder'=>'study title goes here']) !!}
+                          </div>     
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            {!!Form::hidden('study_number','studythree',null,['value'=>'studyone'])!!}
+                            </div>
+                                 
+                          
+                          <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'OBJECTIVES', ['class' => 'control-label col-sm-2'])!!}
+                        <div class="col-sm-10">
+                         {!! Form::textarea('objectives', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Your Objectives here')) !!}
+                          </div>
+                        </div>  
+                        </div>       
+
+  <br>
+
+                         <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Ethical Approval date:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('ethical_approval', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+  <br>    
+                        <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Collection:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_collection', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>                  
+
+
+                         
+ <br>                  
+
+                       <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Analysis:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_analysis', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+
+
+<br>                    
+                            <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Manuscript Writing:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('manuscript', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+                        <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />  
+
+
+
+<br>                      
+                        <div class="row">
+                          <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Anticipated Manuscripts:', ['class' => 'control-label col-sm-4'])!!}
+                          {!!Form::selectRange('number_papers','1','10')!!}
+
+                            </div> 
+                           </div>
+                                 
+
+                           
+                             <div class="row"> 
+             <div class="col-sm-10"> </div>  
+             <div class="col-sm-2">
+             <div class="form-group">
+               <div class="col-md-3 offset-md-2"> 
+              {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
+              </div>
+                </div>
+              </div>
+             </div>   
+
+                      {!!Form::close()!!}  
+                        </div>
+                  
+                        
+                        
+                        <div id="opt3" class="tab-pane fade">
+                        <h3>STUDY FOUR</h3>
+                            <!--CONTENT-->
+                                           {!! Form::open(array('url'=>'plan')) !!}
+                        <div class="row">
+                        <div class="form-group">
+                         
+                        {!!Form::label('name', 'STUDY TITLE', ['class' => 'control-label col-sm-2'])!!}
+                          <div class="col-sm-10">
+                         {!! Form::input('study_name', 'study_name', null, ['class' => 'form-control','placeholder'=>'study title goes here']) !!}
+                          </div>     
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            {!!Form::hidden('study_number','studyfour',null,['value'=>'studyone'])!!}
+                            </div>
+                                 
+                          
+                          <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'OBJECTIVES', ['class' => 'control-label col-sm-2'])!!}
+                        <div class="col-sm-10">
+                         {!! Form::textarea('objectives', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Your Objectives here')) !!}
+                          </div>
+                        </div>  
+                        </div>       
+
+  <br>
+
+                         <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Ethical Approval date:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('ethical_approval', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+  <br>    
+                        <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Collection:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_collection', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>                  
+
+
+                         
+ <br>                  
+
+                       <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Analysis:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_analysis', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+
+
+<br>                    
+                            <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Manuscript Writing:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('manuscript', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+                        <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />  
+
+
+
+<br>                      
+                        <div class="row">
+                          <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Anticipated Manuscripts:', ['class' => 'control-label col-sm-4'])!!}
+                          {!!Form::selectRange('number_papers','1','10')!!}
+
+                            </div> 
+                           </div>
+                                 
+
+                           
+                             <div class="row"> 
+             <div class="col-sm-10"> </div>  
+             <div class="col-sm-2">
+             <div class="form-group">
+               <div class="col-md-3 offset-md-2"> 
+              {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
+              </div>
+                </div>
+              </div>
+             </div>   
+
+                      {!!Form::close()!!}  
+                        </div>
+                   
+                        
+                         
+                        <div id="opt4" class="tab-pane fade">
+                        <h3>STUDY FIVE</h3>
+                        {!! Form::open(array('url'=>'plan')) !!}
+                        <div class="row">
+                        <div class="form-group">
+                         
+                        {!!Form::label('name', 'STUDY TITLE', ['class' => 'control-label col-sm-2'])!!}
+                          <div class="col-sm-10">
+                         {!! Form::input('study_name', 'study_name', null, ['class' => 'form-control','placeholder'=>'study title goes here']) !!}
+                          </div>     
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            {!!Form::hidden('study_number','studyfive',null,['value'=>'studyone'])!!}
+                            </div>
+                                 
+                          
+                          <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'OBJECTIVES', ['class' => 'control-label col-sm-2'])!!}
+                        <div class="col-sm-10">
+                         {!! Form::textarea('objectives', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Your Objectives here')) !!}
+                          </div>
+                        </div>  
+                        </div>       
+
+  <br>
+
+                         <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Ethical Approval date:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('ethical_approval', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+  <br>    
+                        <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Collection:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_collection', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>                  
+
+
+                         
+ <br>                  
+
+                       <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Data Analysis:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('data_analysis', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+
+
+<br>                    
+                            <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Manuscript Writing:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('manuscript', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                        </div>
+                        <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />  
+
+
+
+<br>                      
+                        <div class="row">
+                          <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Anticipated Manuscripts:', ['class' => 'control-label col-sm-4'])!!}
+                          {!!Form::selectRange('number_papers','1','10')!!}
+
+                            </div> 
+                           </div>
+                                 
+
+                           
+                             <div class="row"> 
+             <div class="col-sm-10"> </div>  
+             <div class="col-sm-2">
+             <div class="form-group">
+               <div class="col-md-3 offset-md-2"> 
+              {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
+              </div>
+                </div>
+              </div>
+             </div>   
+
+                      {!!Form::close()!!}  
+                        </div>
+
+
+                
+
+                    
+                    
+                    
+            
+                                                          
+          </div> 
+          </div>                                            
+    </div>    
+                                                          
+          <!-- START DATE , SUBMISSION DATE, PUBLIC DEFENCE(WITH QUATERS EVERY YEAR START WITH 2018) -->                                                
+   <div class="row">   
 
     <div class="col-sm-6">
-                                                      <div class="panel panel-success"> 
+                <div class="panel panel-success"> 
                                                           <div class="panel-heading"> COURSE COMPLETION SCHEDULE</div>
                                                           
 <div class="panel-body">
 
  {!! Form::open(array('url'=>'course')) !!}
 
-    <div class="form-group">
+
+ <div class="row">
+    
+     <div class="form-group">
+     <div class="col-sm-4">
                   
-            {!! Form::label('name', 'Course Title', ['class' => '']) !!}
-            {!! Form::input('course_name', 'course_name', null, ['class' => 'form-control']) !!}
-            
+            {!!Form::label('name', 'Course Title', ['class' => '']) !!}
+     </div>
+
+     <div class="col-sm-8">
+             {!! Form::text('course_name', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'course title',
+                                       'class'=>'form-control pull-right')) !!}
+         </div>   
+    </div>
     </div>
 
+    <br>
 
+   
+
+<div class="row">
+    
      <div class="form-group">
+     <div class="col-sm-4">
                   
             {!!Form::label('name', 'Course Code', ['class' => '']) !!}
-            {!! Form::input('course_code', 'course_code', null, ['class' => 'form-control']) !!}
-            
+     </div>
+
+     <div class="col-sm-8">
+             {!! Form::text('course_code', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'course code',
+                                       'class'=>'form-control pull-right')) !!}
+         </div>   
+    </div>
     </div>
 
+    <br>
 
+
+    <div class="row">
+    
      <div class="form-group">
+     <div class="col-sm-4">
                   
-            {!! Form::label('name', 'Credit Units', ['class' => '']) !!}
-            {!! Form::number('credit_units', 'credit_units', null, ['class' => 'form-control']) !!}
-            
-    </div>
+            {!!Form::label('name', 'Credit Units', ['class' => '']) !!}
+     </div>
 
+     <div class="col-sm-8">
+             {!! Form::selectRange('credit_units', '1','5',null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'credit units',
+                                       'class'=>'form-control pull-right')) !!}
+         </div>   
+    </div>
+    </div>
+    <br>
+
+
+     <div class="row">
+    
      <div class="form-group">
+     <div class="col-sm-4">
                   
-            {!! Form::label('name', 'Institution', ['class' => '']) !!}
-            {!! Form::input('institution', 'institution', null, ['class' => 'form-control']) !!}
-            
+            {!!Form::label('name', 'Institution', ['class' => '']) !!}
+     </div>
+
+     <div class="col-sm-8">
+             {!! Form::text('institution', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Institution',
+                                       'class'=>'form-control pull-right')) !!}
+         </div>   
+    </div>
     </div>
 
-     <div class="form-group">
-                  
-            {!! Form::label('name', 'Department', ['class' => '','placeholder'=>'department']) !!}
-            {!! Form::input('department', 'department', null, ['class' => 'form-control'],'placeholder','department where you belong') !!}
-            
-    </div>
-    <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />  
-
- <div class="form-group">
-                  
-         <select name="semster">
-  <option value="young">ONE</option>
-  <option value="adult">TWO</option>
-  <option value="adult2">THREE</option>
-</select>    
-    </div>    
-
-    <div class="form-group">
-                  
-            <select name="duration">
-  <option value="young">yea</option>
-  <option value="adult">19 to 30</option>
-  <option value="adult2">Over 30</option>
-</select>
-    </div>    
   
+<br>
+    
+	<div class="row">
+ 
+     <div class="form-group">
+     <div class="col-sm-4">
+    
+                  
+            {!! Form::label('name', 'Department') !!}
+    </div>
+    <div class="col-sm-8">
+            {!! Form::text('department', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Department',
+                                      'class'=>'form-control pull-right')) !!}
+      </div>
+            
+   
+</div>
+    </div>
   
+      <br>
+    <br>
+     <div class="row">
+    
+     <div class="form-group">
+     <div class="col-sm-4">
+                  
+            {!!Form::label('name', 'Semester', ['class' => '']) !!}
+     </div>
+
+     <div class="col-sm-8">
+             {!! Form::select('semster',['one' => 'SEMSTER ONE', 'two' => 'SEMSTER TWO','three'=>'SEMSTER THREE','four'=>'SEMSTER FOUR'], null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'click to select semester')) !!}
+         </div>   
+    </div>
+    </div>
+
+    <br>
+
+      <div class="row">
+    
+     <div class="form-group">
+     <div class="col-sm-4">
+                  
+            {!!Form::label('name', 'Year', ['class' => '']) !!}
+     </div>
+
+     <div class="col-sm-8">
+             {!! Form::selectYear('year','2018','2025', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'click to select year')) !!}
+         </div>   
+    </div>
+    </div>
+
+    <br>
+
+
             <div class="form-group">
-               <div class="col-md-3 offset-md-2"> 
+                
               {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
-              </div>
+              
                 </div>
-                                                              
+                <br>
+        {!!Form::close()!!}                                                   
       </div>
                                                           
   </div>
@@ -393,7 +1063,7 @@
               <div class="panel-heading">SECHDULE MEETING PLAN</div>
              <div class="panel-body">        
              
-           {!! Form::open(array('url'=>'meet')) !!}
+            {!! Form::open(array('url'=>'meet')) !!}
 
 
             <div class="form-group">
@@ -403,12 +1073,18 @@
             {!! Form::input('title', 'title', null, ['class' => 'form-control']) !!}
             <!--col-md-6-->
             </div>
+
+             <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />  
                   
             <br>
             <div class="form-group">
                   
             {!! Form::label('name', 'Date:', ['class' => 'col-md-4 control-label']) !!}
-            {!! Form::date('date', 'date', null, ['class' => 'form-control']) !!}
+             {!! Form::date('date', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
             </div><!--col-md-6-->
             
 
@@ -430,258 +1106,33 @@
                                        {!!Form::textarea('agenda',null, ['class' => 'form-control','rows'=>5]) !!}
             </div><!--col-md-6-->
            
-            
+            <br>
            
                <div class="form-group">
                <div class="col-md-3 offset-md-2"> 
               {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
               </div>
                 </div>
+                <br>
+                <br>
+
+            
+               
                 
             {!!Form::close()!!}                                       
-                    
+
+            </div>
+                   
               </div>          
-        </div>
+      
           
     
     </div> <!--col ends here -->
     
-</div>
-                        
-                                                          
-    <div class="panel panel-info">
-        <div class="panel-heading"> THESIS COMPLETION PLAN </div>  
-         <div class="panel-body"> 
-            
-                  <label>Number of studies</label>  
-                    <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#opt">STUDY ONE</a></li>
-                    <li><a data-toggle="tab" href="#opt1"><b>STUDY TWO</b></a></li>
-                    <li><a data-toggle="tab" href="#opt2"><b>STUDY THREE</b></a></li>
-                    <li><a data-toggle="tab" href="#opt3"><b>STUDY FOUR</b></a></li>  
-                    <li><a data-toggle="tab" href="#opt4"><b>STUDY FIVE</b></a></li>    
-                    </ul>
-                    
-                    <div class="tab-content">
-                        <div id="opt" class="tab-pane fade in active"> <h3><ul>STUDY ONE</ul></h3>
-                        
-                        <!--CONTENT-->
-                        <form class="form-horizontal">
-                        <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">STUDY TITLE </label>
-                                <div class="col-sm-10">
-                                <input type="text" name="title" placeholder="study title here">
-                                </div>    
-                            </div>     
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">OBJECTIVES</label>
-                                <div class="col-sm-10">
-                                <textarea class="form-control" rows="6"></textarea>
-                                </div>    
-                            </div>
-                            
-                            <div class="form-group"> 
-                            <label class="control-label col-sm-5" for="objective">ANTICIPATED MANUSCRIPTS</label>
-                            <select class="custom-select">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                            
-                            </div>
-
-                        </form>    
-                            
-                            
-                            
-                    </div>
-                    
-                    
-                        <div id="opt1" class="tab-pane fade">
-                        <h3>STUDY TWO</h3>
-                            <!--CONTENT-->
-                                                    <form class="form-horizontal">
-
-                                                    <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">STUDY TITLE </label>
-                                <div class="col-sm-10">
-                                <input type="text" name="title" placeholder="study title here">
-                                </div>    
-                            </div>     
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">OBJECTIVES</label>
-                                <div class="col-sm-10">
-                                <textarea class="form-control" rows="6"></textarea>
-                                </div>    
-                            </div>
-                            
-                            <div class="form-group"> 
-                            <label class="control-label col-sm-5" for="objective">ANTICIPATED MANUSCRIPTS</label>
-                            <select class="custom-select">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                            
-                            </div>
-
-                        </form>   
-                        </div>
-                   
-                        
-                        
-                        <div id="opt2" class="tab-pane fade">
-                        <h3>STUDY THREE</h3>
-                            <!--CONTENT-->
-                        <form class="form-horizontal">
-                        <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">STUDY TITLE </label>
-                                <div class="col-sm-10">
-                                <input type="text" name="title" placeholder="study title here">
-                                </div>    
-                            </div>     
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">OBJECTIVES</label>
-                                <div class="col-sm-10">
-                                <textarea class="form-control" rows="6"></textarea>
-                                </div>    
-                            </div>
-                            
-                            <div class="form-group"> 
-                            <label class="control-label col-sm-5" for="objective">ANTICIPATED MANUSCRIPTS</label>
-                            <select class="custom-select">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                            
-                            </div>
-
-                        </form>   
-                        </div>
-                  
-                        
-                        
-                        <div id="opt3" class="tab-pane fade">
-                        <h3>STUDY FOUR</h3>
-                            <!--CONTENT-->
-                    <form class="form-horizontal">
-                    <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">STUDY TITLE </label>
-                                <div class="col-sm-10">
-                                <input type="text" name="title" placeholder="study title here">
-                                </div>    
-                            </div>     
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">OBJECTIVES</label>
-                                <div class="col-sm-10">
-                                <textarea class="form-control" rows="6"></textarea>
-                                </div>    
-                            </div>
-                            
-                            <div class="form-group"> 
-                            <label class="control-label col-sm-5" for="objective">ANTICIPATED MANUSCRIPTS</label>
-                            <select class="custom-select">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                            
-                            </div>
-
-                        </form>   
-                        </div>
-                   
-                        
-                         
-                        <div id="opt4" class="tab-pane fade">
-                        <h3>STUDY FIVE</h3>
-                            <!--CONTENT-->
-                                            <form class="form-horizontal">
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">STUDY TITLE </label>
-                                <div class="col-sm-10">
-                                <input type="text" name="title" placeholder="study title here">
-                                </div>    
-                            </div>         
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="objective">OBJECTIVES</label>
-                                <div class="col-sm-10">
-                                <textarea class="form-control" rows="6"></textarea>
-                                </div>    
-                            </div>
-                            
-                            <div class="form-group"> 
-                            <label class="control-label col-sm-5" for="objective">ANTICIPATED MANUSCRIPTS</label>
-                            <select class="custom-select">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                            
-                            </div>
+</div>       
 
 
-                        </div>
-                        <br>
-                        <br>
-                        </form> 
-                        </div>
 
-
-                
-
-                    
-                    
-                    
-             <div class="row"> 
-             <div class="col-sm-10"> </div>  
-             <div class="col-sm-2">
-              <button type="button" class="btn btn-primary">Save changes</button>  
-              </div>
-             </div>   
-                                                          
-          </div>                                             
-    </div>    
-                                                          
-          <!-- START DATE , SUBMISSION DATE, PUBLIC DEFENCE(WITH QUATERS EVERY YEAR START WITH 2018) -->                                                
-                                                          
     <div class="panel-info">
     <div class="panel-heading">DESERTATION WRITING PLAN</div>
     <br>
@@ -689,117 +1140,137 @@
         
             
             <b> <h3>START DATES FOR:</h3></b> 
-                  <form class="form-horizontal">
-                        <div class="form-group">
-                             <label class="control-label col-sm-4">Data Collection</label>
+          {!! Form::open(array('url'=>'activity_create')) !!}
 
-                        <div class="input-group date">
-                          <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
+
+
+               
+                  <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Proposal Development:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('proposal_write', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
                           </div>
-                          <input type="date" class="form-control pull-right" id="datepicker">
-                        </div>
-                        <!-- /.input group -->
-                      </div>
-
-
-                            <div class="form-group">
-                <label class="control-label col-sm-4">Data Analysis</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
+                        </div>  
                   </div>
-                  <input type="date" class="form-control pull-right" id="datepicker">
-                </div>
-                <!-- /.input group -->
-              </div>
-            <div class="form-group">
-                <label class="control-label col-sm-4">Manuscript writing</label>
+                  <br>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
+                
+                  <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Desertation Writing:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('desertation_write', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
                   </div>
-                  <input type="date" class="form-control pull-right" id="datepicker">
-                </div>
-                <!-- /.input group -->
-              </div>
-
-               <div class="form-group">
-                <label class="control-label col-sm-4">Desertation Writing</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
+                  <br>
+                        
+               
+                <div class="row">
+                         <div class="form-group">
+                           <div class="col-md-2"></div>
+                        {!!Form::label('name', 'Desertation Submission:', ['class' => 'control-label col-sm-4'])!!}
+                        
+                        <div class="col-sm-6">
+                      
+                         {!! Form::date('desertation_submit', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'mm/dd/yyyy',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
                   </div>
-                  <input type="date" class="form-control pull-right" id="datepicker">
-                </div>
-                <!-- /.input group -->
-              </div>
 
-              <div class="form-group">
-                <label class="control-label col-sm-4">Desertation Submission</label>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="date" class="form-control pull-right" id="datepicker">
-                </div>
-                <!-- /.input group -->
-              </div>
-
-               <b>PUBLIC DEFENCE:</b> 
-               <div class="row">
+              <u> <b>PUBLIC DEFENCE:</b> </u>
+               <br>
+               <br>
+<div class="row">
                <div class="col-sm-6">
                <div class="form-group"> 
-                            <label class="control-label col-sm-5" for="objective">QUATERS</label>
-                            <select class="custom-select">
-                                <option>1ST QUATER</option>
-                                <option>2ND QUATER</option>
-                                <option>3RD QUATER</option>
-                                
-                            </select>
+                          
+
+      <div class="col-sm-4">
+                  
+            {!!Form::label('name', 'QUARTERS', ['class' => '']) !!}
+     </div>
+
+     <div class="col-sm-8">
+             {!! Form::select('quarters',['first' => '1ST QUARTER', 'second' => '2ND QUARTER','third'=>'3RD QUARTER','fourth'=>'4TH QUARTER'], null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'click to select quarter')) !!}
+         </div> 
+                            
+                          
                             
                </div>
                </div>
 
                <div class="col-sm-6">
-               <div class="form-group"> 
-                            <label class="control-label col-sm-5" for="objective">YEAR</label>
-                            <select class="custom-select">
-                                <option>2018</option>
-                                <option>2019</option>
-                                <option>2020</option>
-                                <option>2021</option>
-                                <option>2022</option>
-                                <option>2023</option>
-                                <option>2024</option>
-                                <option>2025</option>
-                            </select>
-                            
-               </div>
-               </div>
 
-               </div>
 
-        <div class="row"> 
-             <div class="col-sm-10"> </div>  
-             <div class="col-sm-2">
-              <button type="button" class="btn btn-primary">Save changes</button>  
+      
+      <div class="form-group">
+                           
+                        {!!Form::label('name', 'Year:', ['class' => 'control-label col-sm-2'])!!}
+                        <div class="col-sm-10">
+                        {!! Form::selectYear('year','2018','2025', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                       
+                                      'placeholder'=>'click to select year')) !!}
+                                      </div>
+
+          </div>
+                        
+
+      
+          
+          <br>
+
+
+
+
+
+               
+
+  </div>
+</div>
+               <br>
+
+
+         <div class="form-group">
+               <div class="col-md-3 offset-md-2"> 
+              {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
               </div>
-             </div>   
-        </form>
-                       <br>
-                       <br>
+                </div>
+        {!!Form::close()!!}   
+                      
 
 
                                                 
                                                           
     </div>   
 
-
+<br>
+<br>
     <div class="panel-info">
     <div class="panel-heading">DISSEMINATION PLAN</div>
         <div class="panel-body">
@@ -859,67 +1330,111 @@
     <br>
     <br>
     
- {{ Form::open(['link_to_route' => 'study/meet' ,'class' => 'form-horizontal']) }}
-
-            <div class="form-group">
-             <div class="col-sm-2">     
-            {{ Form::label('frname', 'First Name:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-10">
-            {{ Form::input('fname', 'fname', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-
-            <div class="form-group">
-             <div class="col-sm-2">     
-            {{ Form::label('lname', 'Last Name:', ['class' => 'col-md-2 control-label']) }}
-                </div>
-            <div class="col-sm-10">
-            {{ Form::input('lname', 'lname', null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>
-
-             <div class="form-group">
-             <div class="col-sm-2">     
-            {{ Form::label('name', 'Course:', ['class' => 'col-md-2 control-label']) }}
-              </div>
-            <div class="col-sm-10">
-            {{ Form::input('course','course',null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>   
+ {{ Form::open(['link_to_route' => 'study/meet']) }}
 
 
-            <div class="form-group">
-             <div class="col-sm-2">     
-            {{ Form::label('name', 'Insititution:', ['class' => 'col-md-2 control-label']) }}
-              </div>
-            <div class="col-sm-10">
-            {{ Form::input('name','name',null, ['class' => 'form-control']) }}
-            </div><!--col-md-6-->
-            </div>   
 
-            <div class="form-group">
-             <div class="col-sm-2">
-              {{ Form::label('name','Level:',null, ['class' => 'col-md-2 control-label']) }}
-              </div>
-                <div class="col-sm-10">
-                          {{Form::select('level', [
-                            'Undergraduate',
-                            'Masters',
-                            
-                            ]  
-                            ) }}       
-                </div>
-             </div>
-               
+         <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'First Name:', ['class' => 'control-label col-sm-2'])!!}
+                        
+                        <div class="col-sm-8">
+                      
+                         {!! Form::text('fname', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'First Name',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                  </div>
+                  <br>
+
+                   <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Last Name:', ['class' => 'control-label col-sm-2'])!!}
+                        
+                        <div class="col-sm-8">
+                      
+                         {!! Form::text('lname', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'last name',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                  </div>
+                  <br>
+
+
+
+                   <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Course:', ['class' => 'control-label col-sm-2'])!!}
+                        
+                        <div class="col-sm-8">
+                      
+                         {!! Form::text('course', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Course',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                  </div>
+                  <br>
+
+
+
+                   <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Institution:', ['class' => 'control-label col-sm-2'])!!}
+                        
+                        <div class="col-sm-8">
+                      
+                         {!! Form::text('level', null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Institution enrolled at',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                  </div>
+                  <br>
+
+
+                   <div class="row">
+                         <div class="form-group">
+                           
+                        {!!Form::label('name', 'Level:', ['class' => 'control-label col-sm-2'])!!}
+                        
+                        <div class="col-sm-8">
+                      
+                         {!! Form::select('course',['one' => 'MASTERS', 'two' => 'UNDERGRADUATE'], null, 
+                              array('required', 
+                                      'class'=>'form-control', 
+                                       'placeholder'=>'Click to select',
+                                       'class'=>'form-control pull-right')) !!}
+                          </div>
+                        </div>  
+                  </div>
+                  <br>
+
+
+
+            <div class="row">   
            <div class="form-group">
-               <div class="col-md-3 offset-md-2"> 
-               <button type="submit" class="btn btn-success">SAVE</button>
+           <div class="col-sm-8"></div>
+               <div class="col-sm-4"> 
+              {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
               </div>
                 </div>
-
-              {{Form::close()}}  
-                
+               </div> 
+        {!!Form::close()!!}  
             
 
   </div>

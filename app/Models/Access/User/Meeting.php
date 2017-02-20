@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Meeting extends Model
 {
     //
-    protected $table;
+    public $table;
 
     /**
      * The attributes that are mass assignable.

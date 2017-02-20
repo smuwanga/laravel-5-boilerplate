@@ -6,7 +6,7 @@ use App\Http\Requests\Request;
 
 /**
  * Class UpdateProfileRequest.
- */
+ */ 
 class UpdateProfileRequest extends Request
 {
     /**
