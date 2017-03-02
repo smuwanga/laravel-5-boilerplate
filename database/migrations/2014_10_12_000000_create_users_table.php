@@ -23,12 +23,10 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->enum('notify', ['y', 'n'])->default('y');
         });
     }
 
     /**
-    
      * Reverse the migrations.
      *
      * @return void
