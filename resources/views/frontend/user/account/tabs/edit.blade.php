@@ -17,6 +17,55 @@
     @endif
 
     <div class="form-group">
+        
+            {{ Form::label('College',null, ['class' => 'col-md-4 control-label']) }}
+            <div class="col-md-6">
+                {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
+            
+        </div>
+
+    </div>
+
+     <div class="form-group">
+        
+            {{ Form::label('School',null, ['class' => 'col-md-4 control-label']) }}
+            <div class="col-md-6">
+                {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
+            
+        </div>
+
+    </div>
+
+     <div class="form-group">
+        
+            {{ Form::label('Department',null, ['class' => 'col-md-4 control-label']) }}
+            <div class="col-md-6">
+                {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
+            
+        </div>
+
+    </div>
+     <div class="form-group">
+        
+            {{ Form::label('Research Intrests',null, ['class' => 'col-md-4 control-label']) }}
+            <div class="col-md-6">
+                {{ Form::textarea('textarea', 'textarea', null, ['class' => 'form-control','rows'=>'1','style'=>'width:100']) }}
+            
+        </div>
+
+    </div>
+
+     <div class="form-group">
+        
+            {{ Form::label('Supervisors',null, ['class' => 'col-md-4 control-label']) }}
+            <div class="col-md-6">
+                {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
+            
+        </div>
+
+    </div>
+
+    <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
             {{ Form::submit(trans('labels.general.buttons.update'), ['class' => 'btn btn-primary', 'id' => 'update-profile']) }}
         </div>
