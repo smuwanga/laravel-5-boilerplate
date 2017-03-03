@@ -1500,10 +1500,10 @@
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                         <h4 class="modal-title" id="myModalLabel">CONFRENCES AND WORKSHOPS </h4>
                                                       </div>
-                                                      <div class="modal-body">
+                                                      <div class="modal-body" style="text-align: center;">
                                                           
                                                           
-                                                      hello modal here 
+                                                      COMING SOON 
                                                           
                                                       </div>
                                                       <div class="modal-footer">
@@ -1523,10 +1523,10 @@
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                         <h4 class="modal-title" id="myModalLabel"> PERSONAL DEVELOPMENT </h4>
                                                       </div>
-                                                      <div class="modal-body">
+                                                      <div class="modal-body" style="text-align: center;">
                                                           
                                                           
-                                                      hello modal here 
+                                                      COMING SOON
                                                           
                                                           
                                                       </div>
@@ -1548,11 +1548,66 @@
                                 <div class="col-xs-12">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <h4>My Profile</h4>
+                                           DASHBOARD
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                                            <div class="row text-center">
+      <div class="col-sm-4" >
+        <div class="thumbnail" style="background-color: #ff8a2a">
+          <span> <i class="fa fa-book fa-5x" aria-hidden="true"></i></span>
+          <p><strong>Study registered</strong></p>
+         
+
+         <a class="btn btn-success" href="showstudy"> Show me </a>
+          
+        </div>
+      </div>
+      <div class="col-sm-4 ">
+        <div class="thumbnail"  style="background-color: #fa9bdd">
+        <span> <i class="fa fa-group fa-5x" aria-hidden="true"></i></span>
+          <p><strong>Public Engagement</strong></p>
+          
+          <a class="btn btn-success" href="showengage"> Show me </a>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail" style="background-color: #b985fc">
+           <span> <i class="fa fa-graduation-cap fa-5x" aria-hidden="true"></i></span>
+          <p><strong>Courses registered</strong></p>
+
+          <a class="btn btn-success" href="showcourse"> Show me </a>
+        </div>
+      </div>
+      </div>
+
+      <div class="row text-center">
+ <div class="col-sm-4">
+        <div class="thumbnail" style="background-color: #a5fff0">
+          <span> <i class="fa fa-users fa-5x" aria-hidden="true"></i></span>
+          <p><strong>Meetings scheduled</strong></p>
+          
+          <a class="btn btn-success" href="showmeet"> Show me </a>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail" style="background-color: #bfb5b0">
+           <span> <i class="fa fa-list fa-5x" aria-hidden="true"></i></span>
+          <p><strong>Desertation writing plan</strong></p>
+          
+          <button class="btn btn-success">Show me</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail" style="background-color: #f07752">
+           <span> <i class="fa fa-users fa-5x" aria-hidden="true"></i></span>
+          <p><strong>Supervised students</strong></p>
+          <button class="btn btn-success">Show me</button>
+        </div>
+      </div>
+      </div>
                                         </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-xs-12-->
@@ -1566,7 +1621,7 @@
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                                           
                                         </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-md-6-->

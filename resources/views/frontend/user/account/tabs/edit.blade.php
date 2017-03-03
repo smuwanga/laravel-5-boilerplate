@@ -7,6 +7,16 @@
         </div>
     </div>
 
+    <div class="form-group">
+        
+            {{ Form::label('Institution',null, ['class' => 'col-md-4 control-label']) }}
+            <div class="col-md-6">
+                {{ Form::input('text', 'institution', null, ['class' => 'form-control','rows'=>'1','style'=>'width:100']) }}
+            
+        </div>
+
+    </div>
+
     @if ($logged_in_user->canChangeEmail())
         <div class="form-group">
             {{ Form::label('email', trans('validation.attributes.frontend.email'), ['class' => 'col-md-4 control-label']) }}
@@ -20,7 +30,7 @@
         
             {{ Form::label('College',null, ['class' => 'col-md-4 control-label']) }}
             <div class="col-md-6">
-                {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
+                {{ Form::input('text', 'college', null, ['class' => 'form-control']) }}
             
         </div>
 
@@ -30,7 +40,7 @@
         
             {{ Form::label('School',null, ['class' => 'col-md-4 control-label']) }}
             <div class="col-md-6">
-                {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
+                {{ Form::input('text', 'school', null, ['class' => 'form-control']) }}
             
         </div>
 
@@ -40,26 +50,29 @@
         
             {{ Form::label('Department',null, ['class' => 'col-md-4 control-label']) }}
             <div class="col-md-6">
-                {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
+                {{ Form::input('text', 'department', null, ['class' => 'form-control']) }}
             
         </div>
 
-    </div>
-     <div class="form-group">
-        
-            {{ Form::label('Research Intrests',null, ['class' => 'col-md-4 control-label']) }}
-            <div class="col-md-6">
-                {{ Form::textarea('textarea', 'textarea', null, ['class' => 'form-control','rows'=>'1','style'=>'width:100']) }}
-            
-        </div>
-
+    
     </div>
 
      <div class="form-group">
         
-            {{ Form::label('Supervisors',null, ['class' => 'col-md-4 control-label']) }}
+            {{ Form::label('Student number',null, ['class' => 'col-md-4 control-label']) }}
             <div class="col-md-6">
-                {{ Form::input('text', 'text', null, ['class' => 'form-control']) }}
+                {{ Form::input('number', 'snumber', null, ['class' => 'form-control']) }}
+            
+        </div>
+
+    </div>
+
+
+     <div class="form-group">
+        
+            {{ Form::label('Research Topic',null, ['class' => 'col-md-4 control-label']) }}
+            <div class="col-md-6">
+                {{ Form::input('textarea', 'topic', null, ['class' => 'form-control','rows'=>'3','style'=>'width:100']) }}
             
         </div>
 

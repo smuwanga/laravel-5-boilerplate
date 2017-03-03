@@ -17,6 +17,12 @@
             </div>
         @endforeach
 
+        @if(count($file_link) >0)
+        @foreach($file_link as $link)
+        <a href="<?php echo asset("storage/$link->file");?>"><i class="fa fa-link"></i> attached file</a>
+        @endforeach
+        @endif
+
         <h3>Add a new message</h3>
         {!! Form::open(['route' => ['messages.update', $thread->id], 'method' => 'PUT']) !!}
         <!-- Message Form Input -->
@@ -24,7 +30,7 @@
             {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
         </div>
 
-        @if($users->count() > 0)
+        @if(count($users) > 0)
         <div class="checkbox">
             @foreach($users as $user)
                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]" value="{{ $user->id }}">{{ $user->name }}</label>

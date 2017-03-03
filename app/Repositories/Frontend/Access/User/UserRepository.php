@@ -211,6 +211,12 @@ class UserRepository extends Repository
     {
         $user = parent::find($id);
         $user->name = $input['name'];
+        $user->college = $input['college'];
+        $user->school = $input['school'];
+        $user->department = $input['department'];
+        $user->institution = $input['institution'];
+        $user->snumber = $input['snumber'];
+        $user->topic = $input['topic'];
 
         if ($user->canChangeEmail()) {
             //Address is not current address

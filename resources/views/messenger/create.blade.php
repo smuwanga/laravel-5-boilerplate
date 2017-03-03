@@ -3,7 +3,13 @@
 @if($logged_in_user)
 @section('content')
 <h1>Create a new message</h1>
-{!! Form::open(['route' => 'messages.store']) !!}
+
+{!! Form::open(
+    array(
+        'route' => 'messages.store', 
+        'class' => 'form', 
+        'files' => true)) !!}
+
 <div class="col-md-6">
     <!-- Subject Form Input -->
     <div class="form-group">
@@ -17,15 +23,22 @@
         {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
     </div>
 
-    @if($users->count() > 0)
+    <div class="form-group">
+
+    {!! Form::label('File Attachment') !!}
+    {!! Form::file('file', null) !!}
+
+    </div>
+
+    @if(count($users) > 0)
     <div class="checkbox">
         @foreach($users as $user)
-            <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]" value="{{ $user->id }}">{!!$user->name!!}</label>
+            <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]" value="{{ $user->supervised_by_id }}">{!!$user->name!!}</label>
+
         @endforeach
     </div>
     @endif
-    
-    <!-- Submit Form Input -->
+<!-- Submit Form Input -->
     <div class="form-group">
         {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
     </div>

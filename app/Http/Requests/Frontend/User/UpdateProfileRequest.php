@@ -29,6 +29,11 @@ class UpdateProfileRequest extends Request
         return [
             'name'  => 'required',
             'email' => 'sometimes|required|email',
+            'college'=> 'required',
+            'institution'=>'required',
+            'topic'=>'required',
+            'snumber'=>'required',
+
         ];
     }
 }

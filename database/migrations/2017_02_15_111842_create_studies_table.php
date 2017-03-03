@@ -24,9 +24,9 @@ class CreateStudiesTable extends Migration
             $table->date('data_analysis');
             $table->date('manuscript');
             $table->date('ethical_approval');
-             $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-             $table->tinyinteger('deleted')->default(0);
+            $table->tinyinteger('deleted')->default(0);
 
 
 

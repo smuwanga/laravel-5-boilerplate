@@ -49,7 +49,6 @@ class StudyPlanController extends Controller{
 			  'agenda'=>$input['agenda'],
 			  'user_id'=>$id,
 
-
 				);
 			
 	
@@ -102,6 +101,7 @@ class StudyPlanController extends Controller{
 	 $check = DB::table('studies')
 	 				->where('study_number','=',$am)
 	 				->where('user_id','=',$id)
+	 				->where('deleted','=',0)
 	 				->get()->toarray();
 	// $user_study =  DB::table('studies')->where('user_id','=',$id)->get();
        
@@ -140,7 +140,7 @@ class StudyPlanController extends Controller{
  		else{
 
 
- 					return redirect()->route('frontend.user.dashboard')->withFlashDanger(trans('Sorry ' .auth()->user()->name. ' this study plan already exists if u wish to edit please choose edit instead'));
+ 					return redirect()->route('frontend.user.dashboard')->withFlashDanger(trans('Sorry ' .auth()->user()->name. ' this study plan already exists '));
 
 	
  				
@@ -149,6 +149,7 @@ class StudyPlanController extends Controller{
  			//return redirect()->route('frontend.user.dashboard');
 
 		}
+
 
 //milestones insert to db
 	public function activity_create(Request $request){
@@ -201,8 +202,8 @@ class StudyPlanController extends Controller{
 
 				);
 			
-	
- 		engagement::insert($data);
+			
+ 		      engagement::insert($data);
 
 					 return redirect()->route('frontend.user.dashboard')->withFlashSuccess(trans('Engagement has been saved successfully'));
 
@@ -220,21 +221,106 @@ class StudyPlanController extends Controller{
 			return view('frontend.user.showstudy')->with('plans',$plans);
 
 		}
+//delete a study plan.
+		public function delstudy($id){ 
 
+				$page = study::find($id);
+
+			// Make sure you've got the Page model
+			if($page) {
+			    $page->deleted = 1;
+			    $page->save();
+				}
+
+
+		return redirect()->route('frontend.user.dashboard')->withFlashSuccess(trans('Study Plan deleted'));
+		}
+
+		//edit a particular study by it's id
+
+		public function editstudy($id) 
+
+		{
+		   
+	       $study = study::findOrFail($id);
+	      
+	    return view('frontend.user.editstudy', compact('study'));
+		}
+
+		//UPDATE STUDY 
+		public function updatestudy(Request $request, $id){
+        
+        	study::find($id)->update($request->all());
+
+
+        return redirect()->route('frontend.user.showstudy')->withFlashSuccess(trans('update has been successfull'));
+
+        }
 
 		 public function showcourse(){
 		 		$id =  auth()->user()->id;
-		 		$course = DB::table('courses')->where('deleted','=',0)->where('user_id','=',$id)->get();
+		 		//$count = courses::count();
 
+		 	
+		 		$course = DB::table('courses')->where('deleted','=',0)->where('user_id','=',$id)->get();
 		 		//print_r($course);exit;
 
+			    return view('frontend.user.showcourse')->with('course',$course);
+		}
 
+		public function delcourse($id){
+			$page = course::find($id);
 
-			return view('frontend.user.showcourse')->with('course',$course);
+			// Make sure you've got the Page model
+			if($page) {
+			    $page->deleted = 1;
+			    $page->save();
+				}
 
+				return redirect()->route('frontend.user.dashboard')->withFlashSuccess(trans('Course Plan deleted'));
 
 		}
 
+		
+
+		public function editcourse($id) 
+
+		{
+		   
+	       $study = course::findOrFail($id);
+	      
+	    return view('frontend.user.courseedit', compact('study'));
+		}
+
+		//UPDATE STUDY 
+		public function updatecourse(Request $request, $id){
+
+
+			$input =   $request->all();
+			$userid =  auth()->user()->id;
+			$data = array(
+
+		   	         'course_name' =>$input['course_name'],
+		   	         'course_code'=>$input['course_code'],
+		   	          'credit_units'=>$input['credit_units'],
+		   	          'institution'=>$input['institution'],
+		   	          'department'=>$input['department'],
+		   	          'semster'=>$input['semster'],
+		   	          'year'=>$input['year'],
+		   	          'user_id'=>$userid,
+		   	          
+		   	         
+
+		   					);
+
+        
+        	course::find($id)->update($data);
+
+
+           return redirect()->route('frontend.user.showcourse')->withFlashSuccess(trans('update has been successfull'));
+
+
+    }
 
 		 public function showmeet(){
 		 		$id =  auth()->user()->id;
@@ -246,6 +332,38 @@ class StudyPlanController extends Controller{
 
 
 		}
+		public function delmeet($id){
+			$page = Meeting::find($id);
+
+			// Make sure you've got the Page model
+			if($page) {
+			    $page->deleted = 1;
+			    $page->save();
+				}
+
+				return redirect()->route('frontend.user.dashboard')->withFlashSuccess(trans('Meeting Plan deleted'));
+
+		}
+
+		public function editmeet($id) {
+		   
+	       $study = Meeting::findOrFail($id);
+	      
+	    return view('frontend.user.editmeet', compact('study'));
+
+		}
+
+		//UPDATE STUDY 
+		public function updatemeet(Request $request, $id){
+        
+        	Meeting::find($id)->update($request->all());
+
+
+        return redirect()->route('frontend.user.showmeet')->withFlashSuccess(trans('update has been successfull'));
+
+
+    		}
+
 
 
 		 public function showengagement(){
@@ -259,6 +377,38 @@ class StudyPlanController extends Controller{
 
 		}
 
+		public function delengage($id){
+
+				$page = engagement::find($id);
+
+			// Make sure you've got the Page model
+			if($page) {
+			    $page->deleted = 1;
+			    $page->save();
+				}
+
+				return redirect()->route('frontend.user.dashboard')->withFlashSuccess(trans('Engagement Plan deleted'));
+
+		}
+
+		
+		public function editengage($id) {
+		   
+	       $study = engagement::findOrFail($id);
+	      
+	    return view('frontend.user.engagementedit', compact('study'));
+		}
+
+		//UPDATE STUDY 
+		public function updateengage(Request $request, $id){
+        
+        	engagement::find($id)->update($request->all());
+
+
+        return redirect()->route('frontend.user.showengage')->withFlashSuccess(trans('update has been successfull'));
+
+
+    }
 
 	}
 

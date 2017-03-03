@@ -18,8 +18,15 @@
                                 <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">{{ trans('navs.frontend.user.profile') }}</a>
                             </li>
 
+                           
+
                             <li role="presentation">
                                 <a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">{{ trans('labels.frontend.user.profile.update_information') }}</a>
+                            </li>
+
+
+                             <li role="presentation" class=" ">
+                                <a href="#supervisors" aria-controls="profile" role="tab" data-toggle="tab">{{ trans('Manage supervisors') }}</a>
                             </li>
 
                             @if ($logged_in_user->canChangePassword())
@@ -29,15 +36,22 @@
                             @endif
                         </ul>
 
+
+
                         <div class="tab-content">
 
                             <div role="tabpanel" class="tab-pane mt-30 active" id="profile">
                                 @include('frontend.user.account.tabs.profile')
                             </div><!--tab panel profile-->
 
+
                             <div role="tabpanel" class="tab-pane mt-30" id="edit">
                                 @include('frontend.user.account.tabs.edit')
                             </div><!--tab panel profile-->
+
+                            <div role="tabpanel" class="tab-pane mt-30" id="supervisors">
+                                @include('frontend.user.account.tabs.supervisors')
+                            </div>
 
                             @if ($logged_in_user->canChangePassword())
                                 <div role="tabpanel" class="tab-pane mt-30" id="password">
@@ -46,6 +60,9 @@
                             @endif
 
                         </div><!--tab content-->
+
+
+
 
                     </div><!--tab panel-->
 

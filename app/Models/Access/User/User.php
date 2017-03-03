@@ -37,7 +37,7 @@ public $table;
      *
      * @var array
      */
-    public $fillable = ['name', 'email', 'password', 'status', 'confirmation_code', 'confirmed'];
+    public $fillable = ['name', 'email', 'password','status', 'confirmation_code', 'confirmed','college','school','department','institution','topic','snumber'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -60,3 +60,4 @@ public $table;
         $this->table = config('access.users_table');
     }
 }
+ 

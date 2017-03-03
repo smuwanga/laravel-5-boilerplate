@@ -33,14 +33,19 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request)
     {
-       $hrh =  $this->user->updateProfile(access()->id(), $request->all());
-       print_r($hrh);exit;
+    $this->user->updateProfile(access()->id(), $request->all());
+
+      //print_r($request->all());exit;
+       
 
         return redirect()->route('frontend.user.account')->withFlashSuccess(trans('strings.frontend.user.profile_updated'));
     }
 
-    public function newstudent(){
+    public function supervise(){
 
+       
+       echo 'helo ';
+     //return view('frontend.user.account.tabs.supervisors');
 
 
     }

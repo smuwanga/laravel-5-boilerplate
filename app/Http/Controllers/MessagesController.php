@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Access\User\User;
+use Mail;
 //use App\User;
+use Storage;
 use Carbon\Carbon;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Participant;
@@ -13,8 +15,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use App\Services\Access\Access;
+use Illuminate\Support\Facades\DB;
+use App\Models\Access\User\Meeting;
+use App\Mail\reminder;
+use App\Models\Access\User\Course;
+use App\Models\Access\User\study;
+use App\Models\Access\User\milestone;
+use App\Models\Access\User\engagement;
+use App\Models\Access\User\supervision;
 
-class MessagesController extends Controller
+class MessagesController extends Controller 
 {
     /**
      * Show all of the message threads to the user.
@@ -45,7 +55,7 @@ class MessagesController extends Controller
      * @param $id
      * @return mixed
      */
-    public function show($id)
+    public function show($id) 
     {
         try {
             $thread = Thread::findOrFail($id);
@@ -56,18 +66,26 @@ class MessagesController extends Controller
         }
 
         // show current user in list if not a current participant
-        $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
+         $id_log = Auth::user()->id;
+
+      //  $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
+        $users = DB::select(DB::raw("SELECT * from users,supervisions where supervisions.user_id = $id_log AND supervisions.supervised_by_id =  users.id")); 
+
+       // print_r($users);exit;
 
         // don't show the current user in list
         $userId = Auth::user()->id;
        /// $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
 
        /// $thread->markAsRead($userId);
-
+        $file_link = DB::table('messages')->select('file')->where('user_id','=',$userId)->where('thread_id','=',$id)->get();
+        //print_r($file_link);exit;
+       
+//
        /// return view('messenger.show', compact('thread', 'users'));
         if($thread->hasParticipant(Auth::id())){
             $thread->markAsRead($userId);
-            return view('messenger.show', compact('thread','users'));
+            return view('messenger.show', compact('thread','users','file_link'));
         }else{
             Session::flash('error_message', 'This conversation does not involve you');
 
@@ -82,9 +100,15 @@ class MessagesController extends Controller
      */
     public function create()
     {
-        $users = User::where('id', '!=', Auth::id())->get();
+          $id_log = Auth::user()->id;
 
-        return view('messenger.create', compact('users'));
+                 $users = DB::select(DB::raw("SELECT * from users,supervisions where supervisions.user_id = $id_log AND supervisions.supervised_by_id =  users.id")); 
+
+                   
+
+                      // print_r($users);exit;
+      
+        return view('messenger.create', compact('users')); 
     }
 
     /**
@@ -92,9 +116,11 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function store()
+    public function store(Request $request)
     {
         $input = Input::all();
+
+       // print_r($input);exit;
 
         $thread = Thread::create(
             [
@@ -103,11 +129,22 @@ class MessagesController extends Controller
         );
 
         // Message
+
+       $file = request()->file('file');
+            //uploaded files if any processed here 
+if (count($file) !== 0){
+        $file = $request->file('file')->store('attached_files/'.Auth::user()->email);
+
+    }else{
+
+
+    }
         Message::create(
             [
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::user()->id,
                 'body'      => $input['message'],
+                'file'      => $file
             ]
         );
 
@@ -120,10 +157,39 @@ class MessagesController extends Controller
             ]
         );
 
+
+
         // Recipients
         if (Input::has('recipients')) {
             $thread->addParticipant($input['recipients']);
+
+          //  print_r( $input['recipients']);exit;
+            //foward notification to reciepients 
+
+            foreach ($input['recipients'] as $key) {
+                
+                $email_list = DB::table('users')->select('email')->where('id','=',$key)->get()->toArray();
+
+                foreach ($email_list as $emails ) {
+                    
+            
+
+                
+               $mail = $emails->email;
+
+               Mail::to($mail)->send(new reminder);
+
+                }
+              ///  
+                
+            }
+       // exit;
+
+
+           
         }
+
+        
 
         return redirect('messages');
     }
@@ -134,6 +200,9 @@ class MessagesController extends Controller
      * @param $id
      * @return mixed
      */
+
+    
+
     public function update($id)
     {
         try {
@@ -170,6 +239,6 @@ class MessagesController extends Controller
             $thread->addParticipant(Input::get('recipients'));
         }
 
-        return redirect('messages/' . $id);
+        return redirect('messages/' . $id); 
     }
 }
