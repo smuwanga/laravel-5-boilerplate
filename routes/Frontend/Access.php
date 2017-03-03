@@ -14,7 +14,6 @@ Route::group(['namespace' => 'Auth', 'as' => 'auth.'], function () {
 
         //For when admin is logged in as user from backend
         Route::get('logout-as', 'LoginController@logoutAs')->name('logout-as');
-        
 
         // Change Password Routes
         Route::patch('password/change', 'ChangePasswordController@changePassword')->name('password.change');

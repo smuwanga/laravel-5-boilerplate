@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
+<<<<<<< HEAD
             $table->enum('notify', ['y', 'n'])->default('y');
             $table->string('college')->default('Health science');
             $table->string('school')->default('public health');
@@ -31,11 +32,12 @@ class CreateUsersTable extends Migration
             $table->string('topic')->default('microbiology');
             $table->string('institution')->default('Makerere University Uganda');
             $table->tinyinteger('deleted')->default(0);
+=======
+>>>>>>> origin/local-changes
         });
     }
 
     /**
-    
      * Reverse the migrations.
      *
      * @return void
